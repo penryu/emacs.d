@@ -1,0 +1,8 @@
+\#init.el\#
+secrets.el
+*.elc
+*.dat
+backups
+auto-save-list
+places
+tramp
