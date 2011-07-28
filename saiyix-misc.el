@@ -74,10 +74,12 @@
         ido-use-filename-at-point 'guess
         ido-max-prospects 10))
 
-(set-default 'c-basic-offset 4)
-(set-default 'indent-tabs-mode nil)
-(set-default 'indicate-empty-lines t)
-(set-default 'imenu-auto-rescan t)
+(setq-default c-default-style "bsd"
+              c-basic-offset 4
+              indent-tabs-mode nil)
+
+(setq-default indicate-empty-lines t)
+(setq-default imenu-auto-rescan t)
 
 (add-hook 'server-switch-hook
           (lambda ()
