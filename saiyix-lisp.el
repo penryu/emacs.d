@@ -14,6 +14,7 @@
 
 (add-hook 'slime-repl-mode-hook 'turn-on-paredit)
 
+
 ;; Keys
 
 (define-key read-expression-map (kbd "TAB") 'lisp-complete-symbol)
@@ -55,6 +56,16 @@
 (load (expand-file-name "~/.quicklisp/slime-helper.el"))
 (require 'slime-autoloads)
 (slime-setup '(slime-repl))
+
+
+;;; Clojure
+
+(autoload 'clojure-mode "clojure-mode" "Clojure editing mode" t)
+
+(add-to-list 'auto-mode-alist '("\\.clj$" . clojure-mode))
+
+(add-hook 'clojure-mode-hook 'turn-on-paredit)
+(add-hook 'clojure-mode-hook 'run-coding-hook)
 
 
 ;;; Common Lisp
