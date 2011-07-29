@@ -53,9 +53,11 @@
 
 ;;; Slime
 
-(load (expand-file-name "~/.quicklisp/slime-helper.el"))
-(require 'slime-autoloads)
-(slime-setup '(slime-repl))
+(defvar slime-helper-el "~/.quicklisp/slime-helper.el")
+(when (file-exists-p slime-helper-el)
+  (load (expand-file-name "~/.quicklisp/slime-helper.el"))
+  (require 'slime-autoloads)
+  (slime-setup '(slime-repl)))
 
 
 ;;; Clojure
