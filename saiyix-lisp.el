@@ -73,8 +73,7 @@
 ;;; Common Lisp
 
 (setq slime-lisp-implementations
-      '((ccl ("ccl64" "--quiet"))
-        (ccl ("ccl" "--quiet"))
+      '((ccl ("ccl" "--quiet"))
         (sbcl ("sbcl") :coding-system utf-8-unix)))
 
 
