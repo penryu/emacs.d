@@ -134,6 +134,10 @@
      (set-face-foreground 'magit-diff-add "green3")
      (set-face-foreground 'magit-diff-del "red3")))
 
+;; YAML mode
+(autoload 'yaml-mode "yaml-mode" "YAML editing mode" t)
+(add-to-list 'auto-mode-alist '("\\.yml$" . yaml-mode))
+
 ;; make emacs use the clipboard
 (setq x-select-enable-clipboard t)
 
