@@ -56,4 +56,6 @@
 (define-key global-map "\C-ca" 'org-agenda)
 (define-key global-map "\C-cb" 'org-iswitchb)
 
+(global-set-key (kbd "M-z") 'zap-up-to-char)
+
 (provide 'saiyix-bindings)

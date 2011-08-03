@@ -203,6 +203,22 @@ See also `newline-and-indent'."
   (define-key slime-repl-mode-map
     (read-kbd-macro paredit-backward-delete-key) nil))
 
+(defun zap-up-to-char (arg char)
+  "Kill up to, but not including ARGth occurrence of CHAR.
+Case is ignored if `case-fold-search' is non-nil in the current buffer.
+Goes backward if ARG is negative; error if CHAR not found.
+Ignores CHAR at point.
+Thanks to jlf @ freenode/#emacs"
+  (interactive "p\ncZap up to char: ")
+  (let ((direction (if (>= arg 0) 1 -1)))
+    (kill-region (point)
+		 (progn
+		   (forward-char direction)
+		   (unwind-protect
+		       (search-forward (char-to-string char) nil nil arg)
+		     (backward-char direction))
+		   (point)))))
+
 (defalias 'yes-or-no-p 'y-or-n-p)
 
 (provide 'saiyix-defuns)
