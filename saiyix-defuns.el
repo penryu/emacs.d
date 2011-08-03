@@ -69,7 +69,6 @@ Symbols matching the text at point are put first in the completion list."
 
 (add-hook 'coding-hook 'local-column-number-mode)
 (add-hook 'coding-hook 'local-comment-auto-fill)
-(add-hook 'coding-hook 'turn-on-hl-line-mode)
 (add-hook 'coding-hook 'turn-on-save-place-mode)
 (add-hook 'coding-hook 'pretty-lambdas)
 (add-hook 'coding-hook 'add-watchwords)
@@ -198,6 +197,11 @@ See also `newline-and-indent'."
 
 (defvar newline-and-indent t
   "Modify the behavior of the open-*-line functions to cause them to autoindent.")
+
+(defun override-slime-repl-bindings-with-paredit ()
+  "SLIME prevents paredit from overriding DEL"
+  (define-key slime-repl-mode-map
+    (read-kbd-macro paredit-backward-delete-key) nil))
 
 (defalias 'yes-or-no-p 'y-or-n-p)
 

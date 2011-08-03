@@ -18,15 +18,11 @@
 ;;; Slime
 
 (add-hook 'slime-repl-mode-hook 'enable-paredit-mode)
-
-(defun override-slime-repl-bindings-with-paredit ()
-  (define-key slime-repl-mode-map
-    (read-kbd-macro paredit-backward-delete-key) nil))
 (add-hook 'slime-repl-mode-hook 'override-slime-repl-bindings-with-paredit)
 
 (defvar slime-helper-el "~/.quicklisp/slime-helper.el")
 (when (file-exists-p slime-helper-el)
-  (load (expand-file-name "~/.quicklisp/slime-helper.el"))
+  (load (expand-file-name slime-helper-el))
   (require 'slime-autoloads)
   (slime-setup '(slime-repl)))
 
