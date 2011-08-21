@@ -126,4 +126,7 @@
 
 (if (file-exists-p os-specific-config) (load os-specific-config))
 
+(put 'downcase-region 'disabled nil)
+(put 'upcase-region 'disabled nil)
+
 ;;; init.el ends here
