@@ -44,6 +44,7 @@
 (require 'saiyix-shell)
 (require 'saiyix-git)
 (require 'saiyix-paste)
+(require 'saiyix-haskell)
 (require 'saiyix-ocaml)
 (require 'saiyix-ruby)
 (require 'saiyix-perl)
