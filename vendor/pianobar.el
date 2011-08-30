@@ -66,12 +66,6 @@
   "pianobar"
   "The command to run pianobar.")
 
-(defvar pianobar-username nil
-  "The Pandora username to use, or nil to prompt.")
-
-(defvar pianobar-password nil
-  "The Pandora password to use, or nil to prompt.")
-
 (defvar pianobar-station nil
   "The pianobar radio station to automatically select,
 or nil to let you select.")
@@ -251,32 +245,21 @@ Returns t on success, nil on error."
   ;; just make the pianobar buffer the visible one
   (if (comint-check-proc pianobar-buffer)
 	  (set-window-buffer (selected-window) pianobar-buffer)
-	
-	(let ((username pianobar-username)
-		  (password pianobar-password))
-	  
-	  (unless username
-		(setq username (read-from-minibuffer "Pandora username: ")))
-	  (unless password
-		(setq password (read-passwd "Pandora password: ")))
-	  
-	  (if (and (stringp username) (stringp password))
-		  (let ((buffer (get-buffer-create pianobar-buffer)))
-			(with-current-buffer buffer
-			  (make-comint-in-buffer "pianobar" buffer pianobar-command)
-			  (comint-send-string buffer (concat username "\n"))
-			  (comint-send-string buffer (concat password "\n"))
-			  (if (stringp pianobar-station)
-				  (comint-send-string buffer (concat pianobar-station "\n")))
-			  (buffer-disable-undo)
-			  (pianobar-mode))
-			
-			(cond ((boundp 'mode-line-modes)
-				   (add-to-list 'mode-line-modes pianobar-modeline-object t))
-				  ((boundp 'global-mode-string)
-				   (add-to-list 'global-mode-string pianobar-modeline-object t)))
-			
-			(if (not pianobar-run-in-background)
-				(set-window-buffer (selected-window) buffer)))))))
+
+        (let ((buffer (get-buffer-create pianobar-buffer)))
+              (with-current-buffer buffer
+                (make-comint-in-buffer "pianobar" buffer pianobar-command)
+                (if (stringp pianobar-station)
+                        (comint-send-string buffer (concat pianobar-station "\n")))
+                (buffer-disable-undo)
+                (pianobar-mode))
+
+              (cond ((boundp 'mode-line-modes)
+                     (add-to-list 'mode-line-modes pianobar-modeline-object t))
+                    ((boundp 'global-mode-string)
+                     (add-to-list 'global-mode-string pianobar-modeline-object t)))
+
+              (if (not pianobar-run-in-background)
+                  (set-window-buffer (selected-window) buffer)))))
 
 (provide 'pianobar)

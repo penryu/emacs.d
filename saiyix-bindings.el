@@ -52,12 +52,10 @@
 ;; So good!
 (global-set-key (kbd "C-x g") 'magit-status)
 
-;; Make C-o/M-o more like vi's o/O commands
-(global-set-key [S-return] 'open-next-line)
-(global-set-key [C-S-return] 'open-previous-line)
-
 (define-key global-map "\C-cl" 'org-store-link)
 (define-key global-map "\C-ca" 'org-agenda)
 (define-key global-map "\C-cb" 'org-iswitchb)
+
+(global-set-key (kbd "M-z") 'zap-up-to-char)
 
 (provide 'saiyix-bindings)

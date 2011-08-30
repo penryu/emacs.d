@@ -74,9 +74,12 @@
         ido-use-filename-at-point 'guess
         ido-max-prospects 10))
 
-(set-default 'indent-tabs-mode nil)
-(set-default 'indicate-empty-lines t)
-(set-default 'imenu-auto-rescan t)
+(setq-default c-default-style "bsd"
+              c-basic-offset 4
+              indent-tabs-mode nil)
+
+(setq-default indicate-empty-lines t)
+(setq-default imenu-auto-rescan t)
 
 (add-hook 'server-switch-hook
           (lambda ()
@@ -130,6 +133,10 @@
   '(progn
      (set-face-foreground 'magit-diff-add "green3")
      (set-face-foreground 'magit-diff-del "red3")))
+
+;; YAML mode
+(autoload 'yaml-mode "yaml-mode" "YAML editing mode" t)
+(add-to-list 'auto-mode-alist '("\\.yml$" . yaml-mode))
 
 ;; make emacs use the clipboard
 (setq x-select-enable-clipboard t)

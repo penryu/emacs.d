@@ -1,20 +1,12 @@
 
 (require 'paredit)
 
-;; Hooks
 
-(add-hook 'lisp-interaction-mode-hook 'turn-on-paredit)
+;; General Lisp
 
-(add-hook 'lisp-mode-hook 'turn-on-paredit)
-
-(add-hook 'emacs-lisp-mode-hook 'turn-on-paredit)
-(add-hook 'emacs-lisp-mode-hook 'turn-on-eldoc-mode)
-(add-hook 'emacs-lisp-mode-hook 'esk-remove-elc-on-save)
-(add-hook 'emacs-lisp-mode-hook 'run-coding-hook)
-
-(add-hook 'slime-repl-mode-hook 'turn-on-paredit)
-
-;; Keys
+(add-hook 'lisp-interaction-mode-hook 'enable-paredit-mode)
+(add-hook 'lisp-interaction-mode-hook 'turn-on-eldoc-mode)
+(add-hook 'ielm-mode-hook 'turn-on-eldoc-mode)
 
 (define-key read-expression-map (kbd "TAB") 'lisp-complete-symbol)
 (define-key lisp-mode-shared-map (kbd "C-c l") "lambda")
@@ -22,19 +14,29 @@
 (define-key lisp-mode-shared-map (kbd "C-\\") 'lisp-complete-symbol)
 (define-key lisp-mode-shared-map (kbd "C-c v") 'eval-buffer)
 
-(define-key emacs-lisp-mode-map (kbd "M-.") 'find-function-at-point)
 
-;; (defface esk-paren-face
-;;    '((((class color) (background dark))
-;;       (:foreground "grey50"))
-;;      (((class color) (background light))
-;;       (:foreground "grey55")))
-;;    "Face used to dim parentheses."
-;;    :group 'starter-kit-faces)
+;;; Slime
+
+(add-hook 'slime-repl-mode-hook 'enable-paredit-mode)
+(add-hook 'slime-repl-mode-hook 'override-slime-repl-bindings-with-paredit)
+
+(defvar slime-helper-el "~/.quicklisp/slime-helper.el")
+(when (file-exists-p slime-helper-el)
+  (load (expand-file-name slime-helper-el))
+  (require 'slime-autoloads)
+  (slime-setup '(slime-repl)))
+
 
 ;;; Emacs Lisp
 
-(require 'eldoc)
+;(require 'eldoc)
+
+(add-hook 'emacs-lisp-mode-hook 'enable-paredit-mode)
+(add-hook 'emacs-lisp-mode-hook 'turn-on-eldoc-mode)
+(add-hook 'emacs-lisp-mode-hook 'esk-remove-elc-on-save)
+(add-hook 'emacs-lisp-mode-hook 'run-coding-hook)
+
+(define-key emacs-lisp-mode-map (kbd "M-.") 'find-function-at-point)
 
 (eval-after-load 'eldoc-mode
   '(progn
@@ -50,11 +52,15 @@
               (if (file-exists-p (concat buffer-file-name "c"))
                   (delete-file (concat buffer-file-name "c"))))))
 
-;;; Slime
 
-(load (expand-file-name "~/.quicklisp/slime-helper.el"))
-(require 'slime-autoloads)
-(slime-setup '(slime-repl))
+;;; Clojure
+
+(autoload 'clojure-mode "clojure-mode" "Clojure editing mode" t)
+
+(add-to-list 'auto-mode-alist '("\\.clj$" . clojure-mode))
+
+(add-hook 'clojure-mode-hook 'enable-paredit-mode)
+(add-hook 'clojure-mode-hook 'run-coding-hook)
 
 
 ;;; Common Lisp
@@ -74,8 +80,8 @@
 (setq geiser-default-implementation '(racket))
 (load (expand-file-name "~/.emacs.d/vendor/geiser/elisp/geiser.el"))
 
-(add-hook 'scheme-mode-hook 'turn-on-paredit)
-(add-hook 'geiser-repl-mode-hook 'turn-on-paredit)
+(add-hook 'scheme-mode-hook 'enable-paredit-mode)
+(add-hook 'geiser-repl-mode-hook 'enable-paredit-mode)
 
 
 (provide 'saiyix-lisp)

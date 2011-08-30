@@ -44,6 +44,7 @@
 (require 'saiyix-shell)
 (require 'saiyix-git)
 (require 'saiyix-paste)
+(require 'saiyix-haskell)
 (require 'saiyix-ocaml)
 (require 'saiyix-ruby)
 (require 'saiyix-perl)
@@ -125,5 +126,8 @@
   (mapc #'load (directory-files user-specific-dir nil ".*el$")))
 
 (if (file-exists-p os-specific-config) (load os-specific-config))
+
+(put 'downcase-region 'disabled nil)
+(put 'upcase-region 'disabled nil)
 
 ;;; init.el ends here

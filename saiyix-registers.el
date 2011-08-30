@@ -5,6 +5,7 @@
 
 (dolist (r `((?e (file . ,dotfiles-dir))
              (?i (file . ,(concat dotfiles-dir "init.el")))
+             (?f (file . ,(concat dotfiles-dir "saiyix-defuns.el")))
              (?b (file . ,(concat dotfiles-dir "saiyix-bindings.el")))
              (?m (file . ,(concat dotfiles-dir "saiyix-misc.el")))
              (?r (file . ,(concat dotfiles-dir "saiyix-registers.el")))
