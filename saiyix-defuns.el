@@ -221,4 +221,9 @@ Thanks to jlf @ freenode/#emacs"
 
 (defalias 'yes-or-no-p 'y-or-n-p)
 
+(defun toggle-selective-display (column)
+  (interactive "P")
+  (set-selective-display
+   (if selective-display nil (or column 1))))
+
 (provide 'saiyix-defuns)
