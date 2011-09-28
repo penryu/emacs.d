@@ -36,6 +36,8 @@
 (add-hook 'emacs-lisp-mode-hook 'esk-remove-elc-on-save)
 (add-hook 'emacs-lisp-mode-hook 'run-coding-hook)
 
+(add-hook 'ielm-mode-hook 'enable-paredit-mode)
+
 (define-key emacs-lisp-mode-map (kbd "M-.") 'find-function-at-point)
 
 (eval-after-load 'eldoc-mode
