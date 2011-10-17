@@ -8,7 +8,7 @@
 
 ;; make-frame hooks
 (add-hook 'before-make-frame-hook 'turn-off-tool-bar)
-(add-hook 'after-make-frame-functions 'set-frame-menu-bar-lines)
+;(add-hook 'after-make-frame-functions 'set-frame-menu-bar-lines)
 
 (set-terminal-coding-system 'utf-8)
 (set-keyboard-coding-system 'utf-8)
