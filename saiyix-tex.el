@@ -13,7 +13,7 @@
 (add-hook 'LaTeX-mode-hook 'turn-on-reftex)
 (setq reftex-plug-into-AUCTeX t)
 
-(load "auctex.el" nil t t)
-(load "preview-latex.el" nil t t)
+(load "auctex.el" t t t)
+(load "preview-latex.el" t t t)
 
 (provide 'saiyix-tex)
