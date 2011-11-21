@@ -96,7 +96,7 @@
 
 (defun set-theme ()
   (if (>= emacs-major-version 24)
-      (load-theme 'wombat)
+      (load-theme 'zenburn)
     (add-to-list 'load-path (concat dotfiles-dir "/vendor/color-theme"))
     (require 'color-theme)
     (color-theme-initialize)
