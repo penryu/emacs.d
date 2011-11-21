@@ -94,6 +94,9 @@
 
 ;; Appearance
 
+(add-to-list 'default-frame-alist '(width . 100))
+(add-to-list 'default-frame-alist '(height . 42))
+
 (defun set-theme ()
   (if (>= emacs-major-version 24)
       (load-theme 'zenburn)
