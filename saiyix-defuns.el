@@ -221,6 +221,12 @@ Thanks to jlf @ freenode/#emacs"
 
 (defalias 'yes-or-no-p 'y-or-n-p)
 
+(defun lowerp (character)
+     (and (>= character ?a) (<= character ?z)))
+
+(defun letterp (character)
+     (lowerp (downcase character)))
+
 (defun toggle-selective-display (column)
   (interactive "P")
   (set-selective-display

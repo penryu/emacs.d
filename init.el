@@ -111,10 +111,15 @@
 
 ;;; You can keep system- or user-specific customizations here
 
-;; OS derived from `uname -s`: "linux", "darwin", "freebsd"
-;; TODO: modify to use system-type
-(setq os-type (replace-regexp-in-string "\n" "" (downcase
-                (shell-command-to-string "uname -s"))))
+(setq os-type (case system-type
+                (berkeley-unix "bsd")
+                (darwin "darwin")
+                (gnu/linux "linux")
+                (windows-nt "windows")
+                (otherwise
+                 (remove-if-not 'letterp
+                                (symbol-name system-type)))))
+
 (setq short-system-name (car (split-string system-name "\\.")))
 
 (setq system-specific-config (concat dotfiles-dir short-system-name ".el")
