@@ -47,6 +47,7 @@
 (require 'saiyix-tex)
 (require 'saiyix-haskell)
 (require 'saiyix-ocaml)
+(require 'saiyix-dotnet)
 (require 'saiyix-ruby)
 (require 'saiyix-perl)
 (require 'saiyix-php)
