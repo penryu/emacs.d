@@ -9,4 +9,11 @@
 (autoload 'run-fsharp "inf-fsharp" "Run an inferior F# process." t)
 (add-to-list 'auto-mode-alist '("\\.fs[iylx]?$" . fsharp-mode))
 
+(defun csharp-repl ()
+  "Open new side-by-side window and start CSharpRepl in it."
+  (interactive)
+  (split-window)
+  (other-window 1)
+  (comint-run "csharp"))
+
 (provide 'saiyix-dotnet)
