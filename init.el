@@ -39,6 +39,7 @@
 (require 'saiyix-bindings)
 (require 'saiyix-misc)
 (require 'saiyix-registers)
+(require 'saiyix-org)
 (require 'saiyix-pianobar)
 (require 'saiyix-lisp)
 (require 'saiyix-shell)
