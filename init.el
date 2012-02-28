@@ -51,7 +51,7 @@
 (require 'saiyix-dotnet)
 (require 'saiyix-ruby)
 (require 'saiyix-perl)
-(require 'saiyix-php)
+(require 'saiyix-web)
 
 (setq server-name (concat dotfiles-dir "/server"))
 (server-start)

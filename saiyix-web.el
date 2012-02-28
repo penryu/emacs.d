@@ -1,6 +1,8 @@
-(autoload 'php-mode "php-mode" "PHP editing mode" t)
+(load (expand-file-name "~/.emacs.d/vendor/nxhtml/autostart.el"))
 
-(add-to-list 'auto-mode-alist '("\\.php$" . php-mode))
+;(autoload 'php-mode "php-mode" "PHP editing mode" t)
+
+;(add-to-list 'auto-mode-alist '("\\.php$" . php-mode))
 
 (add-hook 'php-mode-hook 'run-coding-hook)
 (add-hook 'php-mode-hook
@@ -9,4 +11,4 @@
             (set (make-local-variable 'tab-width) 8)
             (set (make-local-variable 'indent-tabs-mode) nil)))
 
-(provide 'saiyix-php)
+(provide 'saiyix-web)
