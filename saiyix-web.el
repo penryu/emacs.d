@@ -1,8 +1,8 @@
-(load (expand-file-name "~/.emacs.d/vendor/nxhtml/autostart.el"))
+;(load (expand-file-name "~/.emacs.d/vendor/nxhtml/autostart.el"))
 
-;(autoload 'php-mode "php-mode" "PHP editing mode" t)
+(autoload 'php-mode "php-mode" "PHP editing mode" t)
 
-;(add-to-list 'auto-mode-alist '("\\.php$" . php-mode))
+(add-to-list 'auto-mode-alist '("\\.php$" . php-mode))
 
 (add-hook 'php-mode-hook 'run-coding-hook)
 (add-hook 'php-mode-hook

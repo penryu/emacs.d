@@ -1,3 +1,6 @@
+(autoload 'ruby-mode "ruby-mode" "mode for editing ruby source code" t)
+(autoload 'haml-mode "haml-mode" "mode for editing haml/ruby templates" t)
+
 (eval-after-load 'ruby-mode
   '(progn
      ;; work around possible elpa bug
@@ -14,6 +17,7 @@
 (add-to-list 'auto-mode-alist '("Rakefile$" . ruby-mode))
 (add-to-list 'auto-mode-alist '("Gemfile$" . ruby-mode))
 (add-to-list 'auto-mode-alist '("Capfile$" . ruby-mode))
+(add-to-list 'auto-mode-alist '("\\.haml$" . haml-mode))
 
 ;; We never want to edit Rubinius bytecode
 (add-to-list 'completion-ignored-extensions ".rbc")
