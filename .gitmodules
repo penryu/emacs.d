@@ -10,3 +10,6 @@
 [submodule "vendor/magit"]
 	path = vendor/magit
 	url = git@github.com:penryu/magit.git
+[submodule "vendor/geiser"]
+	path = vendor/geiser
+	url = git@github.com:penryu/geiser.git
