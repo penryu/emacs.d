@@ -4,3 +4,6 @@
 [submodule "vendor/mo-git-blame"]
 	path = vendor/mo-git-blame
 	url = git@github.com:penryu/mo-git-blame.git
+[submodule "vendor/gist"]
+	path = vendor/gist
+	url = git@github.com:penryu/gist.el.git
