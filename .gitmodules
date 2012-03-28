@@ -7,3 +7,6 @@
 [submodule "vendor/gist"]
 	path = vendor/gist
 	url = git@github.com:penryu/gist.el.git
+[submodule "vendor/magit"]
+	path = vendor/magit
+	url = git@github.com:penryu/magit.git
