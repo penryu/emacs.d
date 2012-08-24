@@ -57,6 +57,7 @@
 
 ;;; Clojure
 
+(autoload 'nrepl "nrepl" "nrepl module for clojure repl" t)
 (autoload 'clojure-mode "clojure-mode" "Clojure editing mode" t)
 
 (add-to-list 'auto-mode-alist '("\\.clj$" . clojure-mode))
