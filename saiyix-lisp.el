@@ -57,7 +57,9 @@
 
 ;;; Clojure
 
-(autoload 'nrepl "nrepl" "nrepl module for clojure repl" t)
+(require 'nrepl)
+(add-hook 'nrepl-mode-hook 'enable-paredit-mode)
+
 (autoload 'clojure-mode "clojure-mode" "Clojure editing mode" t)
 
 (add-to-list 'auto-mode-alist '("\\.clj$" . clojure-mode))
