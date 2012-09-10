@@ -102,10 +102,6 @@
 (add-to-list 'default-frame-alist '(width . 100))
 (add-to-list 'default-frame-alist '(height . 42))
 
-; powerline via <https://github.com/milkypostman/powerline>
-(require 'powerline)
-(powerline-default)
-
 (defun set-theme ()
   (if (>= emacs-major-version 24)
       (load-theme 'zenburn)
