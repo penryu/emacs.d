@@ -1,5 +1,13 @@
 ;(load (expand-file-name "~/.emacs.d/vendor/nxhtml/autostart.el"))
 
+;; Markdown
+
+(autoload 'markdown-mode "markdown-mode" "" t)
+(add-to-list 'auto-mode-alist '("\\.markdown$" . markdown-mode))
+(add-to-list 'auto-mode-alist '("\\.md$" . markdown-mode))
+
+;; PHP
+
 (autoload 'php-mode "php-mode" "PHP editing mode" t)
 
 (add-to-list 'auto-mode-alist '("\\.php$" . php-mode))
