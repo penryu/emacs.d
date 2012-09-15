@@ -77,15 +77,15 @@ exec-to-string command, but it works and seems fast"
                    'flymake-display-err-menu-for-current-line)
     (flymake-mode t)))
 
-(eval-after-load 'ruby-mode
-  '(progn
-     (require 'flymake)
-     (push '(".+\\.rb$" flymake-ruby-init) flymake-allowed-file-name-masks)
-     (push '("Rakefile$" flymake-ruby-init) flymake-allowed-file-name-masks)
-     (push '("^\\(.*\\):\\([0-9]+\\): \\(.*\\)$" 1 2 nil 3)
-           flymake-err-line-patterns)
-     (add-hook 'ruby-mode-hook 'flymake-ruby-enable)))
+;; (eval-after-load 'ruby-mode
+;;   '(progn
+;;      (require 'flymake)
+;;      (push '(".+\\.rb$" flymake-ruby-init) flymake-allowed-file-name-masks)
+;;      (push '("Rakefile$" flymake-ruby-init) flymake-allowed-file-name-masks)
+;;      (push '("^\\(.*\\):\\([0-9]+\\): \\(.*\\)$" 1 2 nil 3)
+;;            flymake-err-line-patterns)))
 
+;;(add-hook 'ruby-mode-hook 'flymake-ruby-enable)
 (add-hook 'ruby-mode-hook 'whitespace-mode)
 
 (provide 'saiyix-ruby)
