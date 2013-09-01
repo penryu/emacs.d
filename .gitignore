@@ -8,3 +8,4 @@ places
 tramp
 .emacs.desktop
 .emacs.desktop.lock
+/eshell/
