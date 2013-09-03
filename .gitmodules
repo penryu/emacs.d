@@ -13,3 +13,6 @@
 [submodule "vendor/geiser"]
 	path = vendor/geiser
 	url = git@github.com:penryu/geiser.git
+[submodule "vendor/scala"]
+	path = vendor/scala
+	url = git@github.com:hvesalai/scala-mode2
