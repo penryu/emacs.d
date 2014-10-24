@@ -5,6 +5,6 @@
 (eval-after-load 'twittering-mode
   (setq twittering-use-master-password t))
 
-(add-to-list 'load-path (concat (getenv "HOME") "/.emacs.d/vendor/erc"))
+(add-to-list 'load-path (concat vendor-dir "/erc"))
 (load "erc-penryu.el")
 

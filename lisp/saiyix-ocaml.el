@@ -1,6 +1,6 @@
 ;; add tuareg mode for editing
 
-(add-to-list 'load-path (concat dotfiles-dir "/vendor/tuareg-mode"))
+(add-to-list 'load-path (concat vendor-dir "/tuareg-mode"))
 
 (setq utop-command "opam config exec \"utop -emacs\"")
 

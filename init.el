@@ -9,12 +9,26 @@
 (setq dotfiles-dir (file-name-directory
                     (or (buffer-file-name) load-file-name)))
 
+(setq lisp-dir (concat dotfiles-dir "lisp/")
+      vendor-dir (concat dotfiles-dir "vendor/")
+      elpa-dir (concat dotfiles-dir "elpa/"))
+
 (setq autoload-file (concat dotfiles-dir "loaddefs.el")
       secrets-file (concat dotfiles-dir "secrets.el")
       custom-file (concat dotfiles-dir "custom.el"))
 
-(add-to-list 'load-path dotfiles-dir)
-(add-to-list 'load-path (concat dotfiles-dir "/vendor"))
+(add-to-list 'load-path lisp-dir)
+(add-to-list 'load-path vendor-dir)
+
+;; Package Repositories
+
+(setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")))
+(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
+(add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/"))
+(add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/") t) ; Org-mode's repository
+
+(setq package-enable-at-startup nil)
+(package-initialize)
 
 ;; load secrets
 (when (file-exists-p secrets-file) (load secrets-file))
@@ -40,11 +54,9 @@
 (require 'saiyix-misc)
 (require 'saiyix-registers)
 (require 'saiyix-org)
-(require 'saiyix-pianobar)
 (require 'saiyix-lisp)
 (require 'saiyix-shell)
 (require 'saiyix-git)
-(require 'saiyix-paste)
 (require 'saiyix-tex)
 (require 'saiyix-haskell)
 (require 'saiyix-scala)
@@ -103,10 +115,11 @@
 (add-to-list 'default-frame-alist '(width . 100))
 (add-to-list 'default-frame-alist '(height . 42))
 
+(setq custom-theme-directory elpa-dir)
 (defun set-theme ()
   (if (>= emacs-major-version 24)
       (load-theme 'zenburn)
-    (add-to-list 'load-path (concat dotfiles-dir "/vendor/color-theme"))
+    (add-to-list 'load-path (concat vendor-dir "/color-theme"))
     (require 'color-theme)
     (color-theme-initialize)
     (color-theme-zenburn)))

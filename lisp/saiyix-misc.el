@@ -1,5 +1,3 @@
-(add-to-list 'load-path (concat dotfiles-dir "/vendor"))
-
 (when window-system
   (setq frame-title-format '(buffer-file-name "%f" ("%b")))
   (tooltip-mode -1)
@@ -35,6 +33,10 @@
       save-place-file (concat dotfiles-dir "places")
       global-auto-revert-mode t
       dired-isearch-filenames (quote dwim))
+
+
+;; defunkt's gist mode
+(require 'gist)
 
 ;; Org Mode
 

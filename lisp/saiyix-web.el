@@ -1,5 +1,3 @@
-;(load (expand-file-name "~/.emacs.d/vendor/nxhtml/autostart.el"))
-
 ;; Markdown
 
 (autoload 'markdown-mode "markdown-mode" "" t)

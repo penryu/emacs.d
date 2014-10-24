@@ -15,18 +15,6 @@
 (define-key lisp-mode-shared-map (kbd "C-c v") 'eval-buffer)
 
 
-;;; Slime
-
-(add-hook 'slime-repl-mode-hook 'enable-paredit-mode)
-(add-hook 'slime-repl-mode-hook 'override-slime-repl-bindings-with-paredit)
-
-(defvar slime-helper-el "~/.quicklisp/slime-helper.el")
-(when (file-exists-p slime-helper-el)
-  (load (expand-file-name slime-helper-el))
-  (require 'slime-autoloads)
-  (slime-setup '(slime-repl)))
-
-
 ;;; Emacs Lisp
 
 ;(require 'eldoc)
@@ -73,20 +61,6 @@
 (setq slime-lisp-implementations
       '((sbcl ("sbcl") :coding-system utf-8-unix)
         (ccl ("ccl" "--quiet"))))
-
-
-;;; Scheme
-
-(require 'quack)
-(setq quack-run-scheme-always-prompts-p nil)
-(setq quack-default-program "racket")
-
-(setq geiser-active-implementations '(racket))
-(setq geiser-default-implementation '(racket))
-(load (expand-file-name "~/.emacs.d/vendor/geiser/elisp/geiser.el"))
-
-(add-hook 'scheme-mode-hook 'enable-paredit-mode)
-(add-hook 'geiser-repl-mode-hook 'enable-paredit-mode)
 
 
 (provide 'saiyix-lisp)

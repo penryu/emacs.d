@@ -1,15 +1,3 @@
-[submodule "vendor/haskell-mode"]
-	path = vendor/haskell-mode
-	url = git@github.com:penryu/haskell-mode
-[submodule "vendor/mo-git-blame"]
-	path = vendor/mo-git-blame
-	url = git@github.com:penryu/mo-git-blame.git
-[submodule "vendor/gist"]
-	path = vendor/gist
-	url = git@github.com:penryu/gist.el.git
-[submodule "vendor/geiser"]
-	path = vendor/geiser
-	url = git@github.com:penryu/geiser.git
 [submodule "vendor/scala"]
 	path = vendor/scala-mode2
 	url = git@github.com:hvesalai/scala-mode2

@@ -1,6 +1,3 @@
-(add-to-list 'load-path (concat dotfiles-dir "/vendor/haskell-mode"))
-(load "haskell-site-file")
-
 (add-hook 'haskell-mode-hook 'turn-on-haskell-doc-mode)
 
 ;;; indentation modes are mutually exclusive

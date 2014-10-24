@@ -1,4 +1,4 @@
-(add-to-list 'load-path (concat dotfiles-dir "/vendor/dotnet"))
+(add-to-list 'load-path (concat vendor-dir "/dotnet"))
 
 ;; C# mode
 (autoload 'csharp-mode "csharp-mode" "mode for editing C# source" t)
