@@ -28,6 +28,7 @@
 (add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/") t) ; Org-mode's repository
 
 (setq package-enable-at-startup nil)
+(if (< emacs-major-version 24) (require 'package-e23))
 (package-initialize)
 
 ;; load secrets
