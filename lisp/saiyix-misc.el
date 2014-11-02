@@ -77,7 +77,7 @@
         ido-max-prospects 10))
 
 (setq-default c-default-style "bsd"
-              c-basic-offset 4
+              c-basic-offset 2
               indent-tabs-mode nil)
 
 (setq-default indicate-empty-lines t)
