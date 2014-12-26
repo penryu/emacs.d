@@ -46,8 +46,8 @@
 ;;; Clojure
 
 
-(if (>= emacs-major-version 24) (require 'nrepl))
-(add-hook 'nrepl-mode-hook 'enable-paredit-mode)
+(if (>= emacs-major-version 24) (require 'cider))
+(add-hook 'cider-mode-hook 'enable-paredit-mode)
 
 (autoload 'clojure-mode "clojure-mode" "Clojure editing mode" t)
 
