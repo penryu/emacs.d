@@ -90,7 +90,7 @@
             (when server-buffer-clients
               (local-set-key (kbd "C-x k") 'server-edit))))
 
-(add-hook 'text-mode-hook 'turn-on-auto-fill)
+;(add-hook 'text-mode-hook 'turn-on-auto-fill)
 (add-hook 'text-mode-hook 'turn-on-flyspell)
 
 (add-hook 'org-mode-hook 'turn-on-font-lock)
