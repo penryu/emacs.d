@@ -80,6 +80,9 @@
               c-basic-offset 2
               indent-tabs-mode nil)
 
+(add-hook 'python-mode-hook
+  (lambda () (setq indent-tabs-mode t)))
+
 (setq-default indicate-empty-lines t)
 (setq-default imenu-auto-rescan t)
 
