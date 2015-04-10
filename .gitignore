@@ -9,3 +9,7 @@ tramp
 .emacs.desktop
 .emacs.desktop.lock
 /eshell/
+autosaves/
+elpa/
+ido.last
+recentf
