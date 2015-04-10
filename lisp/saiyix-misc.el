@@ -116,6 +116,7 @@
 (add-to-list 'auto-mode-alist '("\\.rb$" . ruby-mode))
 (add-to-list 'auto-mode-alist '("Rakefile$" . ruby-mode))
 (add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
+(add-to-list 'auto-mode-alist '("\\.erl$" . erlang-mode))
 
 ;; Default to unified diffs
 (setq diff-switches "-u")
