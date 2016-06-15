@@ -3,4 +3,4 @@
 ;; Aqua doesn't inherit PATH from a shell
 (add-to-list 'exec-path "/usr/local/bin")
 
-(add-to-list 'default-frame-alist '(font . "Source Code Pro Light 12"))
+(add-to-list 'default-frame-alist '(font . "Source Code Pro Light 11"))

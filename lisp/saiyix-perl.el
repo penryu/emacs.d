@@ -2,6 +2,8 @@
 
 (eval-after-load 'cperl-mode
   '(progn
+     (setq cperl-indent-level 4
+           cperl-tab-always-indent t)
      (define-key cperl-mode-map (kbd "RET") 'reindent-then-newline-and-indent)
      (define-key cperl-mode-map (kbd "C-M-h") 'backward-kill-word)))
 

@@ -81,7 +81,10 @@
               indent-tabs-mode nil)
 
 (add-hook 'python-mode-hook
-  (lambda () (setq indent-tabs-mode t)))
+          (lambda ()
+            (setq indent-tabs-mode t)
+            (setq tab-width 4)
+            (setq python-indent 4)))
 
 (setq-default indicate-empty-lines t)
 (setq-default imenu-auto-rescan t)
