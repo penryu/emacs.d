@@ -63,6 +63,7 @@
 (require 'saiyix-scala)
 (require 'saiyix-ocaml)
 (require 'saiyix-dotnet)
+(require 'saiyix-python)
 (require 'saiyix-ruby)
 (require 'saiyix-perl)
 (require 'saiyix-web)
