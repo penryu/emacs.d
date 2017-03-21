@@ -1,3 +1,3 @@
-(require 'scala-mode-auto)
+(require 'scala-mode)
 
 (provide 'saiyix-scala)
