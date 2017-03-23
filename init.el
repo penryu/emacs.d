@@ -118,14 +118,7 @@
 (add-to-list 'default-frame-alist '(height . 42))
 
 (setq custom-theme-directory elpa-dir)
-(defun set-theme ()
-  (if (>= emacs-major-version 24)
-      (load-theme 'zenburn)
-    (add-to-list 'load-path (concat vendor-dir "/color-theme"))
-    (require 'color-theme)
-    (color-theme-initialize)
-    (color-theme-zenburn)))
-(set-theme)
+(load-theme 'zenburn)
 
 ;; Column Mode
 (setq column-number-mode t)
