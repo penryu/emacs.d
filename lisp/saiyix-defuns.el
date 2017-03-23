@@ -232,4 +232,9 @@ Thanks to jlf @ freenode/#emacs"
   (set-selective-display
    (if selective-display nil (or column 1))))
 
+(defun my-flymake-show-next-error()
+  (interactive)
+  (flymake-goto-next-error)
+  (flymake-display-err-menu-for-current-line))
+
 (provide 'saiyix-defuns)

@@ -98,6 +98,10 @@
 (defvar coding-hook nil
   "Hook that gets run on activation of any programming mode.")
 
+(add-hook 'coding-hook
+          (lambda ()
+            (local-set-key "\C-c\C-n" 'my-flymake-show-next-error)))
+
 ;; Seed the random number generator
 (random t)
 
