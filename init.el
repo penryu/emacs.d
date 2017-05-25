@@ -68,7 +68,6 @@
 (require 'saiyix-perl)
 (require 'saiyix-web)
 
-(setq server-name (concat dotfiles-dir "/server"))
 (server-start)
 
 (global-undo-tree-mode)
