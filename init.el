@@ -104,7 +104,7 @@
 
 ;; Tramp
 ;(setq tramp-verbose 6)  ; debug value; 0-10; default:3
-(setq tramp-default-method "scpc")
+(setq tramp-default-method "scp")
 ;; allow for zsh's $RPS
 (setq shell-prompt-pattern
       "^[^$>\n]*[#$%>] *\\(\[[0-9;]*[a-zA-Z] *\\)*")
@@ -151,5 +151,26 @@
 
 (put 'downcase-region 'disabled nil)
 (put 'upcase-region 'disabled nil)
+
+(defun toggle-selective-display (column)
+  (interactive "P")
+  (set-selective-display
+   (or column
+       (unless selective-display
+         (1+ (current-column))))))
+
+(defun toggle-hiding (column)
+  (interactive "P")
+  (if hs-minor-mode
+      (if (condition-case nil
+              (hs-toggle-hiding)
+            (error t))
+          (hs-showall))
+    (toggle-selective-display column)))
+
+(global-set-key (kbd "C-\\") 'toggle-hiding)
+
+;(add-hook 'python-mode-hook 'hs-minor-mode)
+
 
 ;;; init.el ends here
