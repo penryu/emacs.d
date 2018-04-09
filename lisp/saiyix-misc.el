@@ -81,6 +81,12 @@
               js-indent-level 2
               indent-tabs-mode nil)
 
+(add-hook 'python-mode-hook
+          (lambda ()
+            (setq indent-tabs-mode nil)
+            (setq tab-width 4)
+            (setq python-indent 4)))
+
 (setq-default indicate-empty-lines t)
 (setq-default imenu-auto-rescan t)
 
