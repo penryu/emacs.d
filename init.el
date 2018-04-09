@@ -117,7 +117,7 @@
 (add-to-list 'default-frame-alist '(height . 42))
 
 (setq custom-theme-directory elpa-dir)
-(load-theme 'zenburn)
+(load-theme 'flatland)
 
 ;; Column Mode
 (setq column-number-mode t)
