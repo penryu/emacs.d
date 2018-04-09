@@ -117,13 +117,13 @@
 (add-to-list 'default-frame-alist '(height . 42))
 
 (setq custom-theme-directory elpa-dir)
-(load-theme 'flatland)
+(load-theme 'flatland-black)
 
 ;; Column Mode
 (setq column-number-mode t)
 
 ;;; You can keep system- or user-specific customizations here
-
+;; evaluate os of host system
 (setq os-type (case system-type
                 (berkeley-unix "bsd")
                 (darwin "darwin")
@@ -132,22 +132,26 @@
                 (otherwise
                  (remove-if-not 'letterp
                                 (symbol-name system-type)))))
-
+;; derive name of os-specific config file
 (setq short-system-name (car (split-string system-name "\\.")))
-
-(setq system-specific-config (concat dotfiles-dir short-system-name ".el")
-      user-specific-config (concat dotfiles-dir user-login-name ".el")
-      user-specific-dir (concat dotfiles-dir user-login-name)
-      os-specific-config (concat dotfiles-dir os-type ".el"))
-
-(add-to-list 'load-path user-specific-dir)
-
+;; derive full path to host-specific configs
+(setq system-specific-config (concat lisp-dir short-system-name ".el")
+      user-specific-config (concat lisp-dir user-login-name ".el")
+      user-specific-dir (concat lisp-dir user-login-name)
+      os-specific-config (concat lisp-dir os-type ".el")
+      local-config (concat lisp-dir "local.el"))
+;; load hostname-specific config
 (if (file-exists-p system-specific-config) (load system-specific-config))
+;; load user-specific config
 (if (file-exists-p user-specific-config) (load user-specific-config))
+;; add user-specific dir (is this useful?)
+(add-to-list 'load-path user-specific-dir)
 (if (file-exists-p user-specific-dir)
   (mapc #'load (directory-files user-specific-dir nil ".*el$")))
-
+;; add os-specific config
 (if (file-exists-p os-specific-config) (load os-specific-config))
+;; load local config
+(if (file-exists-p local-config) (load local-config))
 
 (put 'downcase-region 'disabled nil)
 (put 'upcase-region 'disabled nil)

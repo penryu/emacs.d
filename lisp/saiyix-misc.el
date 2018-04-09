@@ -136,11 +136,6 @@
      (set-face-foreground 'diff-added "green4")
      (set-face-foreground 'diff-removed "red3")))
 
-(eval-after-load 'magit
-  '(progn
-     (set-face-foreground 'magit-diff-add "green3")
-     (set-face-foreground 'magit-diff-del "red3")))
-
 ;; YAML mode
 (autoload 'yaml-mode "yaml-mode" "YAML editing mode" t)
 (add-to-list 'auto-mode-alist '("\\.yml$" . yaml-mode))
