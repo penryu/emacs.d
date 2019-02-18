@@ -31,6 +31,15 @@
 (if (< emacs-major-version 24) (require 'package-e23))
 (package-initialize)
 
+(unless (package-installed-p 'cider)
+  (package-install 'cider))
+
+(unless (package-installed-p 'company)
+  (package-install 'company))
+
+(global-company-mode)
+(global-set-key (kbd "TAB") #'company-indent-or-complete-common)
+
 ;; load secrets
 (when (file-exists-p secrets-file) (load secrets-file))
 
