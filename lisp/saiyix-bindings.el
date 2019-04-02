@@ -56,6 +56,7 @@
 (define-key global-map "\C-cl" 'org-store-link)
 (define-key global-map "\C-ca" 'org-agenda)
 (define-key global-map "\C-cb" 'org-iswitchb)
+(define-key global-map "\C-ct" 'org-todo-list)
 
 (define-key global-map "\C-cf" 'toggle-selective-display)
 
