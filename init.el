@@ -69,7 +69,6 @@
 (require 'saiyix-git)
 (require 'saiyix-tex)
 (require 'saiyix-haskell)
-(require 'saiyix-scala)
 (require 'saiyix-ocaml)
 (require 'saiyix-dotnet)
 (require 'saiyix-python)
