@@ -45,7 +45,6 @@
 
 ;;; Clojure
 
-
 (if (>= emacs-major-version 24) (require 'cider))
 (add-hook 'cider-mode-hook 'enable-paredit-mode)
 

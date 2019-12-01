@@ -32,7 +32,8 @@
       xterm-mouse-mode t
       save-place-file (concat dotfiles-dir "places")
       global-auto-revert-mode t
-      dired-isearch-filenames (quote dwim))
+      dired-isearch-filenames (quote dwim)
+      neo-smart-open t)
 
 
 ;; defunkt's gist mode
@@ -124,10 +125,7 @@
 
 (add-to-list 'auto-mode-alist '("COMMIT_EDITMSG$" . diff-mode))
 (add-to-list 'auto-mode-alist '("\\.ya?ml$" . yaml-mode))
-(add-to-list 'auto-mode-alist '("\\.rb$" . ruby-mode))
-(add-to-list 'auto-mode-alist '("Rakefile$" . ruby-mode))
 (add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
-(add-to-list 'auto-mode-alist '("\\.erl$" . erlang-mode))
 
 ;; Default to unified diffs
 (setq diff-switches "-u")
