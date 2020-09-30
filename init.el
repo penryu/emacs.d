@@ -22,23 +22,16 @@
 
 ;; Package Repositories
 
-(setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")))
-(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
-(add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/"))
-(add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/") t) ; Org-mode's repository
+(setq package-archives '(("gnu" . "https://elpa.gnu.org/packages/")
+                         ("melpa" . "https://melpa.org/packages/")))
+(add-to-list 'package-archives '("org" . "https://elpa.gnu.org/packages/") t)
 
-(setq package-enable-at-startup nil)
-(if (< emacs-major-version 24) (require 'package-e23))
 (package-initialize)
+(setq package-enable-at-startup nil)
 
-(unless (package-installed-p 'cider)
-  (package-install 'cider))
+(unless package-archive-contents
+  (package-refresh-contents))
 
-(unless (package-installed-p 'company)
-  (package-install 'company))
-
-(global-company-mode)
-(global-set-key (kbd "TAB") #'company-indent-or-complete-common)
 
 ;; load secrets
 (when (file-exists-p secrets-file) (load secrets-file))
@@ -46,8 +39,15 @@
 ;; load customizations
 (when (file-exists-p custom-file) (load custom-file))
 
+(setq package-list
+      '(company gist flatland-black-theme undo-tree))
+
+(dolist (package package-list)
+  (unless (package-installed-p package)
+    (package-install package)))
+
 ;; standards
-(require 'cl)
+(require 'cl-lib)
 (require 'saveplace)
 (require 'ffap)
 (require 'uniquify)
@@ -58,23 +58,19 @@
 (require 'whitespace)
 (require 'undo-tree)
 
+(global-company-mode)
+(global-set-key (kbd "TAB") #'company-indent-or-complete-common)
+
 ;; custom
 (require 'saiyix-defuns)
 (require 'saiyix-bindings)
 (require 'saiyix-misc)
 (require 'saiyix-registers)
 (require 'saiyix-org)
-(require 'saiyix-lisp)
+;(require 'saiyix-lisp)
 (require 'saiyix-shell)
 (require 'saiyix-git)
-(require 'saiyix-tex)
-(require 'saiyix-haskell)
-(require 'saiyix-ocaml)
-(require 'saiyix-dotnet)
-(require 'saiyix-python)
-(require 'saiyix-ruby)
-(require 'saiyix-perl)
-(require 'saiyix-web)
+;(require 'saiyix-tex)
 
 (server-start)
 
@@ -132,7 +128,7 @@
 
 ;;; You can keep system- or user-specific customizations here
 ;; evaluate os of host system
-(setq os-type (case system-type
+(setq os-type (cl-case system-type
                 (berkeley-unix "bsd")
                 (darwin "darwin")
                 (gnu/linux "linux")
@@ -181,8 +177,6 @@
     (toggle-selective-display column)))
 
 (global-set-key (kbd "C-\\") 'toggle-hiding)
-
-;(add-hook 'python-mode-hook 'hs-minor-mode)
 
 
 ;;; init.el ends here
